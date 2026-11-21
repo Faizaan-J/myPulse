@@ -12,7 +12,7 @@ import { sampleCells } from "../lib/charge"
         <aside class="order-2 lg:order-1" aria-label="About MyPulse">
             <p class="hidden lg:block headline mb-3">StuyPulse Attendance</p>
             <p class="hidden lg:block text-soft mb-10">FRC Team 694</p>
-            <Battery cells={sampleCells()} decorative />
+            <Battery transition:name="battery" transition:persist transition:persist-props cells={sampleCells()} decorative />
         </aside>
         <main class="order-1 lg:order-2 w-full max-w-[400px]">
             <slot />

@@ -265,6 +265,10 @@
         font-size: 0.9375rem;
     }
 
+    .battery-detail[aria-hidden="true"] {
+        visibility: hidden;
+    }
+
     .cell {
         display: block;
         position: relative;
@@ -307,8 +311,6 @@
         height: calc(var(--level) * 100%);
         background: var(--color-charge);
         transform-origin: bottom;
-        animation: cell-fill 420ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
-        animation-delay: var(--delay);
     }
 
     /* every cell is an outlined pill that fills from the bottom; a missed one is only the outline */

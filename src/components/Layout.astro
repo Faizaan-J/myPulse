@@ -8,16 +8,18 @@ const { title, desc } = Astro.props
 import "@fontsource-variable/hanken-grotesk/wght.css"
 import "@fontsource-variable/bricolage-grotesque/opsz.css"
 import "../styles/global.css"
+import { ClientRouter } from "astro:transitions"
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
     <head>
         <meta charset="UTF-8" />
         <meta name="description" content={desc} />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/694-logo.svg" />
         <title>{title}</title>
+        <ClientRouter fallback="swap" />    
     </head>
     <body class="min-h-dvh">
         <slot />
