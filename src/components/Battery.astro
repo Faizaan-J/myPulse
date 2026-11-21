@@ -67,7 +67,12 @@ const ONE_ROW = 60
                         // the calendar is the keyboard way to pick a meeting, so these stay out of the tab order
                         if (selectable)
                             return (
-                                <button type="button" class="cell-button cell-hitbox" tabindex="-1" data-select={cell.key}>
+                                <button
+                                    type="button"
+                                    class="cell-button cell-hitbox"
+                                    tabindex="-1"
+                                    data-select={cell.key}
+                                >
                                     {inner}
                                 </button>
                             )
@@ -87,7 +92,13 @@ const ONE_ROW = 60
             )
         }
     </div>
-    {!decorative && cells.length > 0 && <p class="battery-detail" aria-hidden="true" data-battery-detail>placeholder</p>}
+    {
+        !decorative && cells.length > 0 && (
+            <p class="battery-detail" aria-hidden="true" data-battery-detail>
+                placeholder
+            </p>
+        )
+    }
 </div>
 
 <script>
@@ -138,20 +149,15 @@ const ONE_ROW = 60
     ringSelected(document.documentElement.dataset.selectedMeeting)
 
     const battery = document.querySelector<HTMLElement>("[data-battery]")
-    if (battery) {
-        battery.querySelectorAll<HTMLElement>(".cell").forEach((cell) => {
-            const bar = cell.querySelector("i")
-            const delay = parseFloat(cell.style.getPropertyValue("--delay")) || 0
+    battery?.querySelectorAll<HTMLElement>(".cell").forEach((cell) => {
+        const bar = cell.querySelector("i")
+        const delay = parseFloat(cell.style.getPropertyValue("--delay")) || 0
 
-            bar?.animate(
-                [{ transform: "scaleY(0)" }, { transform: "scaleY(1)" }],
-                {
-                    duration: 400,
-                    delay,
-                    easing: "cubic-bezier(0.2, 0.8, 0.2, 1)",
-                    fill: "both",
-                }
-            )
-        });
-    }
+        bar?.animate([{ transform: "scaleY(0)" }, { transform: "scaleY(1)" }], {
+            duration: 400,
+            delay,
+            easing: "cubic-bezier(0.2, 0.8, 0.2, 1)",
+            fill: "both",
+        })
+    })
 </script>
